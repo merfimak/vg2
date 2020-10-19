@@ -61,11 +61,14 @@ window.onload = function() {
 //затемнение при прокрутке
 window.addEventListener('scroll', function(e) {
 const scro = document.querySelector('.menu');
+const scro_icons = document.querySelector('.icons_body');
 if(pageYOffset > 20){
   scro.style.transition = '0.5s';
   scro.style.backgroundColor = '#000000';
+  scro_icons.style.backgroundColor = '#86A42D';
 }else{
   scro.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  scro_icons.style.backgroundColor = 'rgba(0, 0, 0, 0)';
 }
 });
 

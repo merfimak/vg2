@@ -310,14 +310,14 @@ body {
 .icons {
   position: absolute;
   z-index: 3;
-  top: 110px;
-  right: 10px; }
+  top: 105px;
+  right: 22px; }
   @media screen and (max-width: 992px) {
     .icons {
-      top: 100px; } }
+      top: 90px; } }
   @media screen and (max-width: 520px) {
     .icons {
-      top: 75px; } }
+      top: 65px; } }
 
 .icons_body {
   display: -webkit-box;
@@ -332,13 +332,21 @@ body {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  max-width: 230px; }
+  max-width: 230px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px 10px 20px;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s; }
 
 .icon {
   margin: 0  12px 0 0;
   width: 22px;
   height: 10px;
   cursor: pointer; }
+  .icon:last-child {
+    margin: 0 0 0 0; }
   .icon img {
     max-width: 100%; }
 

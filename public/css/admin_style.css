@@ -730,6 +730,15 @@ body {
   -ms-flex: 1 1 20%;
   flex: 1 1 20%; }
 
+  .video_edit_admin_video{
+    max-width: 500px;
+    margin-bottom: 10px;
+  }
+
+   .video_edit_admin_video video{
+    width: 100%;
+  }
+
 .fotos_admin {
   padding: 110px 0 0 0; }
 
@@ -741,6 +750,21 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 20px 0 0 0;
   margin-bottom: 30px; }
+
+  .foto_edit_admin_body{
+    padding: 110px 0 0 0; 
+      margin: 0 auto;
+  max-width: 1200px;
+  margin-bottom: 30px;
+  }
+
+  .foto_edit_admin_img{
+    max-width: 500px;
+     margin-bottom: 10px;
+  }
+
+  .foto_edit_admin_img img {
+    width: 100%; }
 
 .fotos_admin_form_title {
   text-align: center;
@@ -914,3 +938,10 @@ body {
   text-align: center;
    margin-bottom: 10px;
 }
+
+.edit_btn {
+  margin: 10px auto 0;
+  background-color: #86A42D;
+  padding: 22px 22px; }
+  .edit_btn:hover {
+    background-color: #49A42D; }

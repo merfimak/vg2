@@ -70,11 +70,17 @@
 				</div>
 
 				<div class="videos_admin_list_item_action">
-					<form action="{{ route('video.destroy',['video'=>$video_item->id])}}" enctype="multipart/form-data"  method="POST">
-						{{ csrf_field() }}
-		                <input type="hidden" name="_method" value="DELETE">
-		                <input type="submit" value="удалить" class="btn delete_btn">
-		            </form>
+					<div class="fotos_admin_action_btn">
+						<form action="{{ route('video.destroy',['video'=>$video_item->id])}}" enctype="multipart/form-data"  method="POST">
+							{{ csrf_field() }}
+			                <input type="hidden" name="_method" value="DELETE">
+			                <input type="submit" value="удалить" class="btn delete_btn">
+			            </form>
+			           <form action="{{ route('video.edit',['video'=>$video_item->id])}}" enctype="multipart/form-data"  method="GET">
+					 {{ csrf_field() }}
+	                <input type="submit" value="изменить" class="btn edit_btn">
+	            </form>
+					</div>
 				</div>
 			</div>
 			<div class="admin_uslugi_line"></div>

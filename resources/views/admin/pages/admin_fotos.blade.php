@@ -59,11 +59,19 @@
 		<div class="fotos_admin_list_item_info">{{$foto_item->portfolio_img_info}}</div>
 		<div class="fotos_admin_list_item_img"><img src="../img/portfolio/{{$foto_item->portfolio_img}}" alt=""></div>
 		<div class="fotos_admin_list_item_action">
-			<form action="{{ route('foto.destroy',['foto'=>$foto_item->id])}}" enctype="multipart/form-data"  method="POST">
-				 {{ csrf_field() }}
-                 <input type="hidden" name="_method" value="DELETE">
-                <input type="submit" value="удалить" class="btn delete_btn">
-            </form>
+			<div class="fotos_admin_action_btn">
+				<form action="{{ route('foto.destroy',['foto'=>$foto_item->id])}}" enctype="multipart/form-data"  method="POST">
+					 {{ csrf_field() }}
+	                 <input type="hidden" name="_method" value="DELETE">
+	                <input type="submit" value="удалить" class="btn delete_btn">
+	            </form>
+			</div>
+			<div class="fotos_admin_action_btn">
+				<form action="{{ route('foto.edit',['foto'=>$foto_item->id])}}" enctype="multipart/form-data"  method="GET">
+					 {{ csrf_field() }}
+	                <input type="submit" value="изменить" class="btn edit_btn">
+	            </form>
+			</div>
 		</div>
 	</div>
 	<div class="admin_uslugi_line"></div>

@@ -95,7 +95,13 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+         $this->title = 'Video edit';
+         $this->video_for_edit = Video::find($id);
+        if(!$this->video_for_edit){
+            abort(404);
+        }
+
+         return view('admin.pages.admin_video_edit')->with('title', $this->title)->with('video_for_edit', $this->video_for_edit);
     }
 
     /**
@@ -107,7 +113,38 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+        'portfolio_video_name' => 'required|min:1'
+        ]);
+
+        $data = $request->except('_token','img_for_cover','portfolio_video');
+        if($request->hasFile('img_for_cover')) {
+            $img = $request->img_for_cover;
+            if($img->isValid()) {
+            $img->move(public_path().'/img/foto_for_videocover',$img->getClientOriginalName());
+            $data['img_for_cover'] = $img->getClientOriginalName();
+            }
+        }
+        else{
+            $data['img_for_cover'] = $request->old_cover;
+        }
+
+        if($request->hasFile('portfolio_video')) {
+            $img = $request->portfolio_video;
+            if($img->isValid()) {
+            $img->move(public_path().'/video',$img->getClientOriginalName());
+            $data['portfolio_video'] = $img->getClientOriginalName();
+            }
+        }
+        else{
+            $data['portfolio_video'] = $request->old_video;
+        }
+     $video = Video::find($id);
+           $video->fill($data)->update();
+          if($video){
+            $ok = 'изменено';
+            return redirect()->back()->withSuccess($ok);
+          }
     }
 
     /**
